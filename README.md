@@ -1,60 +1,133 @@
-# Porta-Voz — uma IA que faz ligações por você
+<h1 align="center">Porta-Voz</h1>
 
-O Porta-Voz é um app Android em que uma assistente de voz com inteligência artificial **liga por você**: cota preços,
-marca horários, confere contas, navega nos menus automáticos ("digite 1 para…") e traz o resultado escrito.
-**Você decide**: se aparecer um preço, um horário ou uma condição nova, ela pede um instante e pergunta a você na hora.
+<p align="center">
+  <strong>Assistente de voz com Inteligência Artificial para chamadas telefônicas reais pelo próprio celular</strong><br>
+  Cota preços, agenda consultas, navega em menus automáticos e atende recados com supervisão humana estrita.
+</p>
 
-> Versão de teste, distribuída aqui até a chegada à Google Play. O código-fonte não é público.
+<p align="center">
+  <a href="https://github.com/Yiuky/porta-voz/releases/latest"><img src="https://img.shields.io/badge/Release-v0.3.0%20(teste)-059669?style=for-the-badge&logo=android&logoColor=white" alt="Release v0.3.0"></a>
+  <img src="https://img.shields.io/badge/Android-12%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android 12+">
+  <img src="https://img.shields.io/badge/IA%20de%20Voz-Gemini%20Live-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini Live">
+  <img src="https://img.shields.io/badge/Privacidade-Zero%20Servidor-6941C6?style=for-the-badge&logo=shield" alt="Zero Servidor">
+  <a href="PRIVACIDADE.md"><img src="https://img.shields.io/badge/Política-Privacidade-slate?style=for-the-badge" alt="Privacidade"></a>
+</p>
 
-## Baixar
+---
 
-Vá em **[Releases](../../releases/latest)** e baixe:
+## 📱 Visão Geral
 
-| Arquivo | Para quem |
-|---|---|
-| **Porta-Voz-0.3.0.apk** | Versão completa (recomendada para testar) |
-| Porta-Voz-0.3.0-loja.apk | A mesma versão que irá para a Google Play (sem ler o registro de chamadas e sem enviar SMS direto) |
+O **Porta-Voz** é um aplicativo Android que coloca uma secretária de inteligência artificial de verdade nas mãos de pessoas comuns (*Power to the people*). 
 
-Conferência (SHA-256):
-```
+Em vez de você perder meia hora no telefone ouvindo música de espera para cotar um exame ou marcar uma consulta, a assistente **faz a ligação por você**:
+- Liga pelo seu **próprio chip e plano móvel** (sem custos de telefonia em nuvem ou VoIP empresarial).
+- Navega em menus eletrônicos automáticos (*"digite 1 para financeiro, 2 para agendamento"*).
+- Negocia horários e tira dúvidas com atendentes humanos em voz natural de baixa latência.
+- **Você tem sempre a palavra final:** se surgir um preço, um novo horário ou uma condição especial, ela pede um instante na ligação e pergunta na hora no seu celular (via notificação rápida de um toque). Nada é fechado sem a sua autorização expressa.
+
+> [!NOTE]
+> Esta é uma versão de testes distribuída via APK pelo GitHub enquanto o aplicativo é preparado para publicação na Google Play. O código-fonte do motor é proprietário.
+
+---
+
+## 📥 Baixar o Aplicativo
+
+Acesse a página de **[Releases](https://github.com/Yiuky/porta-voz/releases/latest)** e escolha o arquivo:
+
+| Arquivo APK | Descrição |
+| :--- | :--- |
+| **`Porta-Voz-0.3.0.apk`** | **Versão completa recomendada.** Suporta leitura do registro de chamadas e envio de SMS direto pela linha do usuário. |
+| `Porta-Voz-0.3.0-loja.apk` | Versão adaptada para as políticas da Google Play (sem envio de SMS direto em segundo plano). |
+
+### 🔒 Conferência de Integridade (SHA-256)
+```text
 a32375ac7a87ec6466d7b5e56f5bfa803ec28a02976d4150159b67454e217dfe  Porta-Voz-0.3.0.apk
 1b4b5f520b089bf7379a56284b1ad8ba80818e966f28dd539e1c45611467a947  Porta-Voz-0.3.0-loja.apk
 ```
 
-## Requisitos
-- Android 12 ou mais novo, com linha celular (a IA fala em ligações comuns, não no WhatsApp).
-- Uma chave **gratuita** do Google Gemini (o app mostra onde pegar: aistudio.google.com/apikey).
-- Wi-Fi na primeira ativação (veja abaixo).
+---
 
-## Instalar
-1. Baixe o APK no celular e abra. Se o Android pedir, permita "instalar apps desta fonte".
-2. Abra o Porta-Voz. No **Início**, siga a preparação:
-   - **Motor de áudio:** ative as Opções do desenvolvedor (Configurações → Sobre o telefone → Informações do software →
-     toque 7 vezes em "Número de compilação"), toque em **Parear (uma vez)**, ligue a Depuração sem fio, toque em
-     "Parear o dispositivo com um código" e digite o código na notificação do Porta-Voz. Depois disso o app ativa o
-     motor sozinho, inclusive ao reiniciar o celular (com Wi-Fi).
-   - **Seu nome e a chave da IA:** preencha, toque em Testar e em Concluir.
-3. Peça uma ligação no Início (por exemplo: "ligue para a padaria X e pergunte até que horas abre no domingo") e
-   toque em **Ligar agora**.
+## 🛠️ Arquitetura e Como Funciona
 
-Por que o "motor"? O Android não deixa um app comum falar e ouvir dentro de uma ligação; o motor roda com a permissão
-que a Depuração sem fio concede, só no seu celular.
+O Android por padrão impede que aplicativos convencionais capturem e injetem áudio digital diretamente dentro do fluxo de uma chamada telefônica ativa. Para contornar essa limitação **sem exigir root**, o Porta-Voz utiliza um motor local ativado via **Depuração Sem Fio (Wireless Debugging / ADB local)**:
 
-## O que ele faz
-- Ligações com objetivo; lote (a mesma pergunta para vários contatos); retorno com a sua decisão.
-- Menus automáticos: escolhe as opções, aprende o caminho de cada número e avisa quando o menu muda.
-- Perguntas ao vivo com respostas de um toque na notificação; "assumir a ligação" a qualquer momento.
-- Recepcionista: atende quando você não pode e anota o recado.
-- Secretária de mensagens (conversas que você liberar).
-- Histórico com gravação, transcrição, busca e "continuar a ligação"; ligar mais tarde.
+```mermaid
+flowchart LR
+    A["👤 Você\n(Instrução ou Alerta)"] <--> B["📱 Porta-Voz App\n(Interface e Decisões)"]
+    B <--> C["⚙️ Motor Local de Áudio\n(Wireless Debugging)"]
+    C <--> D["📞 Linha Celular (Chip)\n(Chamada Telefônica Real)"]
+    C <--> E["🧠 Google Gemini Live\n(Voz Bidirecional Real-Time)"]
+    D <--> F["🏥 Clínica / Empresa\n(Atendente ou Menu URA)"]
+```
 
-## Privacidade
-Sem servidor próprio e sem anúncios. Gravações e conversas ficam no seu celular; o áudio da ligação vai ao Google
-Gemini pela **sua** chave. Leia a [política de privacidade](PRIVACIDADE.md).
+1. **Áudio 100% Digital:** A voz da IA entra na ligação com clareza cristalina, e a voz do atendente é processada sem interferências de microfone físico ou ruídos do ambiente.
+2. **Local-First & Direto:** O áudio trafega em tempo real criptografado diretamente do seu aparelho para a API do Google Gemini, utilizando a sua própria chave gratuita. Não há servidores intermediários nossos gravando ou processando a sua chamada.
 
-## Observações desta versão de teste
-- Quando o app chegar à Google Play, será preciso **desinstalar esta versão** antes de instalar a da loja (as
-  assinaturas são diferentes); exporte o que quiser guardar pelo Histórico.
-- Testado num Samsung Galaxy (Android 16, VoLTE). Outros aparelhos podem se comportar diferente: use **Ajustes →
-  Enviar diagnóstico** e abra uma [issue](../../issues) contando o que houve.
-- A IA se apresenta como assistente virtual e avisa quando a ligação é gravada. Use com responsabilidade.
+---
+
+## ✨ Principais Recursos
+
+* 🎯 **Ligações com Objetivo:** Diga o que precisa (*"Ligue para a Mecânica X e pergunte se o orçamento do carro ficou pronto"*) e o app liga, dialoga e anota o resumo por escrito.
+* 📋 **Ligações em Lote:** Faça a mesma cotação para 3 ou mais clínicas ou fornecedores em sequência e compare as respostas lado a lado.
+* 🤖 **Navegação em Menus Eletrônicos (URA):** O app reconhece menus interativos de voz, envia os tons DTMF adequados (*"1", "2", "CPF"*), aprende os atalhos e avisa se o menu da empresa mudar.
+* ✋ **Assumir a Ligação:** Você pode acompanhar a transcrição ao vivo na tela e, se preferir falar diretamente, assumir a chamada a qualquer momento com um toque.
+* 🛎️ **Modo Recepcionista:** Atende chamadas recebidas quando você estiver ocupado, explica que você está indisponível e anota o recado completo com áudio e transcrição.
+* 💬 **Secretária de Mensagens:** Suporte opcional para monitorar notificações e sugerir respostas rápidas para contatos autorizados (WhatsApp, Telegram e SMS).
+* 📅 **Integração com Agenda:** A assistente pode consultar seus horários livres na agenda do celular para não marcar compromissos em horários conflitantes.
+* 🎙️ **Ativação por Voz Offline:** Suporte à palavra de ativação *"Fala, Porta-Voz"* processada 100% localmente no aparelho.
+
+---
+
+## 🚀 Como Instalar e Configurar
+
+### Requisitos:
+* Aparelho com **Android 12** ou superior.
+* Chip celular ativo com plano de voz para fazer ligações normais.
+* Chave de API gratuita do **Google Gemini** (pegue em [aistudio.google.com/apikey](https://aistudio.google.com/apikey)).
+* Conexão Wi-Fi ativa para a ativação inicial.
+
+### Passo a Passo:
+
+1. **Instale o APK:**
+   * Baixe o [Porta-Voz-0.3.0.apk](https://github.com/Yiuky/porta-voz/releases/latest) no seu smartphone e autorize a instalação de fontes desconhecidas caso solicitado.
+2. **Ative o Motor de Áudio (Pareamento único):**
+   * Ative as *Opções do Desenvolvedor* no Android:
+     `Configurações` → `Sobre o telefone` → `Informações do software` → Toque 7 vezes em **Número de compilação**.
+   * Abra o Porta-Voz e toque em **Parear (uma vez)** no card do motor de áudio.
+   * Nas configurações do sistema, ative a **Depuração sem fio** e escolha **Parear o dispositivo com um código**.
+   * Digite o código de pareamento de 6 dígitos na notificação do Porta-Voz.
+   > [!TIP]
+   > Feito isso uma vez, o aplicativo reativa o motor automaticamente nas próximas inicializações sempre que conectado a uma rede Wi-Fi.
+3. **Configure sua Chave:**
+   * Insira seu nome e a sua chave da API Gemini (gratuita). Toque em **Testar** e confirme.
+4. **Faça sua Primeira Chamada:**
+   * Na aba **Início**, selecione ou digite o contato, informe o que deseja saber e toque em **Ligar agora**.
+
+---
+
+## 🔒 Privacidade e Segurança em Primeiro Lugar
+
+O Porta-Voz foi concebido com governança e transparência estritas:
+
+* 🚫 **Zero Servidores Próprios:** Não armazenamos seus contatos, suas conversas nem seus áudios. Não temos servidores em nuvem coletando metadados.
+* 🔐 **Armazenamento Seguro:** Chaves de API e dados sensíveis são protegidos via hardware através do **Android Keystore**.
+* 📢 **Transparência Legal:** A assistente se identifica expressamente como inteligência virtual no início da ligação e notifica sobre a gravação conforme as boas práticas legais.
+* 📄 **Política Completa:** Leia o documento detalhado em [PRIVACIDADE.md](PRIVACIDADE.md).
+
+---
+
+## ⚠️ Observações da Versão de Testes
+
+* **Migração para a Google Play:** Quando o app for disponibilizado oficialmente na Google Play Store, será necessário desinstalar a versão APK de testes prévia devido à assinatura de chaves de publicação da loja. Exporte suas conversas importantes pelo menu Histórico antes da troca.
+* **Testes de Hardware:** O aplicativo foi testado em aparelhos Samsung Galaxy (com VoLTE ativo). Se encontrar comportamentos inesperados em outros fabricantes (Xiaomi, Motorola, etc.), use **Ajustes → Enviar diagnóstico** e abra uma [Issue](https://github.com/Yiuky/porta-voz/issues) relatando o modelo e a versão do sistema.
+
+---
+
+## 🌐 Conheça outros projetos do autor
+
+O **Porta-Voz** faz parte do ecossistema de soluções de IA e automação desenvolvidas por **Joberth Gambati**:
+
+* 🛰️ **[ArcMagery & QMagery](https://github.com/Yiuky/ArcMagery-releases):** Imagens de satélite direto no ArcMap e QGIS na resolução nativa.
+* 🛡️ **[PrivioSentry](https://github.com/Yiuky/PrivioSentry):** Anonimização e tarjamento de PDFs com IA 100% offline (LGPD).
+* 🗄️ **[ReperIO](https://github.com/Yiuky/ReperIO):** Indexador e copiador ultrarrápido para servidores de rede SMB/DFS.
+* 🌍 **Portfólio Completo:** [yiuky.github.io](https://yiuky.github.io)
