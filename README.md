@@ -11,6 +11,8 @@
   <img src="https://img.shields.io/badge/IA%20de%20Voz-Gemini%20Live-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini Live">
   <img src="https://img.shields.io/badge/Privacidade-Zero%20Servidor-6941C6?style=for-the-badge&logo=shield" alt="Zero Servidor">
   <a href="PRIVACIDADE.md"><img src="https://img.shields.io/badge/Política-Privacidade-slate?style=for-the-badge" alt="Privacidade"></a>
+  <a href="https://github.com/sponsors/Yiuky"><img src="https://img.shields.io/badge/Sponsor-Yiuky-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="GitHub Sponsors"></a>
+  <a href="#-doe-um-café-para-o-dev"><img src="https://img.shields.io/badge/Doe%20um%20café-Pix-E67E22?style=for-the-badge&logo=coffeescript&logoColor=white" alt="Doe um café"></a>
 </p>
 
 ---
@@ -120,6 +122,32 @@ O Porta-Voz foi concebido com governança e transparência estritas:
 
 * **Migração para a Google Play:** Quando o app for disponibilizado oficialmente na Google Play Store, será necessário desinstalar a versão APK de testes prévia devido à assinatura de chaves de publicação da loja. Exporte suas conversas importantes pelo menu Histórico antes da troca.
 * **Testes de Hardware:** O aplicativo foi testado em aparelhos Samsung Galaxy (com VoLTE ativo). Se encontrar comportamentos inesperados em outros fabricantes (Xiaomi, Motorola, etc.), use **Ajustes → Enviar diagnóstico** e abra uma [Issue](https://github.com/Yiuky/porta-voz/issues) relatando o modelo e a versão do sistema.
+
+---
+
+## ☕ Doe um café para o dev
+
+Se o **Porta-Voz** economizou o seu tempo ou facilitou o seu dia a dia, considere apoiar o desenvolvimento independente: ajuda a manter os projetos abertos, gratuitos e evoluindo!
+
+<table>
+  <tr>
+    <td align="center"><img src="pix_qrcode.png" alt="QR Code Pix" width="170" /></td>
+    <td>
+      <strong>Pix</strong> (qualquer valor)<br><br>
+      Chave aleatória:<br>
+      <code>fcf8071f-416d-49f1-b4b9-3188d3d03c4b</code><br><br>
+      Pix copia e cola:<br>
+      <code style="word-break: break-all;">00020101021126580014br.gov.bcb.pix0136fcf8071f-416d-49f1-b4b9-3188d3d03c4b5204000053039865802BR5917JOBERTH F GAMBATI6006CUIABA62070503***63048088</code><br><br>
+      <em>Favorecido: Joberth Firmino Gambati</em>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <a href="https://github.com/sponsors/Yiuky">
+    <img src="https://img.shields.io/badge/Apoiar%20via-GitHub%20Sponsors-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Apoiar via GitHub Sponsors" />
+  </a>
+</p>
 
 ---
 
