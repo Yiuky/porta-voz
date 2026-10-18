@@ -49,6 +49,19 @@ a32375ac7a87ec6466d7b5e56f5bfa803ec28a02976d4150159b67454e217dfe  Porta-Voz-0.3.
 
 ---
 
+## 🖼️ Telas
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/telas/ligar.png" width="200" alt="Nova ligação: número, nome e tarefa"><br><b>Nova ligação</b><br>número, nome e o que a IA deve fazer</td>
+    <td align="center"><img src="docs/telas/criar.png" width="200" alt="Criar a tarefa com a IA a partir de uma descrição"><br><b>Criar com a IA</b><br>descreva com as suas palavras e revise</td>
+    <td align="center"><img src="docs/telas/lote.png" width="200" alt="Várias ligações, um contato por linha"><br><b>Várias ligações</b><br>cole os contatos; uma por vez</td>
+    <td align="center"><img src="docs/telas/ajustes.png" width="200" alt="Ajustes: cota de IA, inteligência artificial, ligações, recepcionista"><br><b>Ajustes</b><br>cota de IA, voz, horários, recepcionista</td>
+  </tr>
+</table>
+
+---
+
 ## 🛠️ Arquitetura e Como Funciona
 
 O Android por padrão impede que aplicativos convencionais capturem e injetem áudio digital diretamente dentro do fluxo de uma chamada telefônica ativa. Para contornar essa limitação **sem exigir root**, o Porta-Voz utiliza um motor local ativado via **Depuração Sem Fio (Wireless Debugging / ADB local)**:
