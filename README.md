@@ -60,6 +60,17 @@ a32375ac7a87ec6466d7b5e56f5bfa803ec28a02976d4150159b67454e217dfe  Porta-Voz-0.3.
   </tr>
 </table>
 
+### A decisão volta para você
+
+Ilustração com **dados fictícios** do momento em que a IA está na linha e pede a sua decisão.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/divulgacao/ilustracao-decisao-ao-vivo.png" width="220" alt="Ligação ao vivo: a IA pede a sua decisão"><br><b>Ao vivo</b><br>a IA pergunta antes de decidir</td>
+    <td align="center"><img src="docs/divulgacao/ilustracao-sua-decisao.png" width="220" alt="Sua decisão: opções levantadas pela IA"><br><b>Sua decisão</b><br>você escolhe; ela liga de volta</td>
+  </tr>
+</table>
+
 ---
 
 ## 🛠️ Arquitetura e Como Funciona
