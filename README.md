@@ -151,6 +151,15 @@ Se o **Porta-Voz** economizou o seu tempo ou facilitou o seu dia a dia, consider
 
 ---
 
+## 👤 Autor e licença
+
+- **Desenvolvedor:** Joberth Firmino Gambati ([@Yiuky](https://github.com/Yiuky))
+- **Código-fonte:** privado, sem licença de código aberto. Este repositório distribui apenas os APKs de teste e a documentação.
+- **APKs de teste:** distribuídos para avaliação; todos os direitos reservados ao autor. Privacidade: [PRIVACIDADE.md](PRIVACIDADE.md).
+- Segurança: veja [SECURITY.md](SECURITY.md).
+
+---
+
 ## 🌐 Conheça outros projetos do autor
 
 O **Porta-Voz** faz parte do ecossistema de soluções de IA e automação desenvolvidas por **Joberth Gambati**:
